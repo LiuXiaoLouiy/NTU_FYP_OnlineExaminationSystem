@@ -1,0 +1,71 @@
+<head>
+    <title>index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body bgcolor="#e6ffee">
+    <div class="one">
+      <!--Side Nav-->
+      <div class="two">
+        <h2>{{SessionUserame}}</h2>
+        <br>
+        <ul>
+          <li><a routerLink="/user">User Management</a></li>
+          <li class="active"><a routerLink="/examlist">Exam Management</a></li>
+          <li><a routerLink="/">On Hold</a></li>
+          <li><a routerLink="/">On Hold</a></li>
+          <li><a routerLink="/">On Hold</a></li>
+          <li><a routerLink="/">Log out</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="topbar">
+          <h2>Exam Management</h2> <br>
+        </div>
+        <div class="contentbar">
+          <div class="table-title">
+            <div class="row">
+              <div class="col-sm-6">
+                <h2>Manage Exams</h2>
+              </div>
+              <div class="col-sm-6">
+                <a routerLink="/examadd" class="btn btn-success" data-toggle="modal"> <span>Create New Exam</span></a>
+
+              </div>
+            </div>
+          </div>
+          <section style="background-color: #eee;">
+            <div class="container py-5">
+              <div class="row" >
+                <div class="col-md-12 col-lg-4 mb-4 mb-lg-0" *ngFor="let exam of exams" style="padding-bottom: 20px;" >
+                  <div class="card">
+                    <img class="card-img-top" src="assets/examImg.PNG" alt="Card image cap">
+                    <a (click)="delete(exam)" class="delete" data-toggle="modal" style="text-align:right;  font-weight: bold; color:red;">X</a>
+                    <div class="card-body">
+                      <p class="card-title" style="text-align: center; font-weight: bold;">{{exam.examName}}</p>
+                      <p class="card-title">{{exam.examID}}</p>
+                      <p class="card-title">{{exam.examType}}</p>
+                      <p class="card-title">{{exam.startDate}}</p>
+                      <p class="card-title">{{exam.examStatus}}</p>
+                      <p class="card-text"> This is the final exam of IM4578</p>
+                      <br>
+                      <div style="text-align: center;">
+                      <a routerLink="/exam/{{exam.examID}}" class="btnlauch btn-primary" >View Details</a>
+                      </div>
+                      <br>
+                      <div style="text-align: center;">
+                        <a routerLink="/detail/2" class="btn btn-primary" >Launch </a>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+            </div>
+          </section>
+          <!--card-->
+          
+        </div>
+  
+      </div>
+    </div>
+  </body>
+
